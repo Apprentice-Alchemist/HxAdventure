@@ -1,4 +1,4 @@
-package item;
+package game.item;
 import haxe.ds.StringMap;
 class Inventory {
     public var items:StringMap<Array<Item>>;

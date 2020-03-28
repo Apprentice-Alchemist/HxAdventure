@@ -1,7 +1,7 @@
-package;
+package game;
 
+import flixel.FlxSubState;
 import flixel.FlxG;
-import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxBar;
 import flixel.ui.FlxButton;
@@ -9,7 +9,7 @@ import flixel.util.FlxAxes;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 
-class OptionsState extends FlxState
+class OptionsState extends FlxSubState
 { 
 	// define our screen elements
 	var _txtTitle:FlxText;

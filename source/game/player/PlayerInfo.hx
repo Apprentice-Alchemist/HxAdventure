@@ -1,4 +1,4 @@
-package player;
+package game.player;
 
 import lib.xml.XmlPath;
  
@@ -11,13 +11,13 @@ class PlayerInfo {
         }
         var info = new PlayerInfo(xml);
         players.set(info.id,info);
-        trace('Player Loaded : ' + info.id);
+        // trace('Player Loaded : ' + info.id);
     }
-    public static function get(e:String){
+    public static function get(e:String):Dynamic{
 		if (players == null) {
 			players = new Map<String, PlayerInfo>();
-		}
-        return PlayerInfo.players.exists(e) ? PlayerInfo.players.get(e) : null;
+        }
+        return PlayerInfo.players.exists(e) ? PlayerInfo.players.get(e) : "No Player found : " + e;
     }
 
     public var id:String;

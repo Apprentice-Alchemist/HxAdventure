@@ -1,7 +1,7 @@
-package player;
+package game.player;
 
-import item.ItemInfo;
-import item.Item;
+import game.item.ItemInfo;
+import game.item.Item;
 import haxe.ds.StringMap;
 class Equipment {
     public var slots:StringMap<Item>;

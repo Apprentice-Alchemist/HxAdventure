@@ -1,7 +1,10 @@
-package player;
-import item.Inventory;
-import item.Item;
+package game.player;
+
+import game.item.Inventory;
+import game.item.Item;
+import game.player.PlayerInfo;
 class Player {
+    public var info:PlayerInfo;
     public var stats:Stats;
 
     public var health:Int;
@@ -23,7 +26,9 @@ class Player {
     public var seen_orbs_map:Map<String, Bool>;
     
     public var partners_map:Map<String, Partner>;
+    
     public function new(info:PlayerInfo){
+        this.info = info;
         health = info.health;
         sanity = info.sanity;
         exp = 0;

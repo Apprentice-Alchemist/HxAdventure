@@ -1,6 +1,19 @@
 <xml version="1.0"/>
 <data>
+<action>
+function doTest(){
+    var test = "string";
+    trace(Std.is(test,String));
+    trace(Math.random());
+    map = [1,2,3];
+    map2 = [];
+    <!-- copyMap(map,map2); -->
+    trace(map2);
+    return null;
+}<action></action>
+doTest(); trace(new Xml(0));
+</action>
 <player id="default" health="100" sanity="50">
 </player>
-<item id="test_item"/>
+<!-- <item id="test_item"/> -->
 </data>

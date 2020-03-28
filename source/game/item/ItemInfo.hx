@@ -1,4 +1,4 @@
-package item;
+package game.item;
 
 import haxe.ds.StringMap;
 

@@ -1,6 +1,6 @@
-package item;
+package game.item;
 
-import player.Player;
+import game.player.Player;
  
 class Item {
     public var id:String;
