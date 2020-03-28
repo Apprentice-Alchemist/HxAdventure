@@ -23,16 +23,13 @@ class Player {
     public var seen_orbs_map:Map<String, Bool>;
     
     public var partners_map:Map<String, Partner>;
-    public function new(){
-        health = 15;
-        sanity = 10;
-
+    public function new(info:PlayerInfo){
+        health = info.health;
+        sanity = info.sanity;
         exp = 0;
         coins = 0;
-
         inventory = new Inventory();
         equipment = new Equipment();
-
         stats = new Stats();
    }
    public function updateAttack(){

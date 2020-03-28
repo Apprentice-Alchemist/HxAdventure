@@ -1,0 +1,6 @@
+<xml version="1.0"/>
+<data>
+<player id="default" health="100" sanity="50">
+</player>
+<item id="test_item"/>
+</data>

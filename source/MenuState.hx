@@ -52,7 +52,7 @@ class MenuState extends FlxState {
 		_btnExit = new FlxButton(FlxG.width - 28, 8, "X", function() {
 			System.exit(0);
 		});
-		_btnExit.loadGraphic('img/button.png', true, 20, 20);
+		_btnExit.loadGraphic('data/ui/button.png', true, 20, 20);
 		add(_btnExit);
 		#end
 
