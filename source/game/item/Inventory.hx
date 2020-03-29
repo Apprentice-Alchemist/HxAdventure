@@ -1,23 +1,27 @@
 package game.item;
-import haxe.ds.StringMap;
+
 class Inventory {
-    public var items:StringMap<Array<Item>>;
+    public var items:Array<Item>;
  
     public function new(){
-        items = new StringMap<Array<Item>>();
-        items.set('equipment',new Array<Item>());
-        items.set('potions',new Array<Item>());
-        items.set('other',new Array<Item>());
-        items.set('special',new Array<Item>());
+		items = new Array<Item>();
     }
-    public function removeItem(item:Item){
-        items.get(item.type).remove(item);
+    public function removeItem(item:String){
+        return items.remove(new Item(ItemInfo.get(item)));
+    }
+    public function addItem(item:String,?count:Int){
+        if (count == null){var count = 1;}
+        if(ItemInfo.get(item) == null){return false;}
+        for (o in 0...count){
+            items.push(new Item(ItemInfo.get(item)));
+        }
         return true;
     }
-    public function addItem(item:Item,?count:Int){
-        if (count == null){var count =1;}
-        if (item.type == "none"){return false;}
-        items.get(item.type).push(item);
-        return true;
+    public function addItemData(item:Item){
+        if (item != null){ items.push(item); return true;}
+        return false;
+    }
+    public function removeItemData(item:Item){
+        return items.remove(item);
     }
 }

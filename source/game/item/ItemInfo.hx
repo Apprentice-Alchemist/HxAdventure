@@ -1,5 +1,6 @@
 package game.item;
 
+import game.player.Player;
 import haxe.ds.StringMap;
 
 class ItemInfo {
@@ -14,16 +15,27 @@ class ItemInfo {
 	public var defense:Int = 0;
 	public var durability:Int = 0;
 
-	// Consume stuff
-	public var healthBoost:Int = 0;
-	// var healthRegenBoost = {value: 0, duration: 0};
-	public var sanityBoost:Int = 0;
-	// var sanityRegenboost = {value: 0, duration: 0};
+	public var canConsume:Bool;
     public function new(_xml:Xml){
 		xml = _xml;
 		id = xml.get("id");
 		type = xml.get("type");
-	    }
+		slot = xml.get("slot");
+		damage = Std.parseInt(xml.get("damage"));
+		defense = Std.parseInt(xml.get("defense"));
+		durability = Std.parseInt(xml.get("durability"));
+	}
+	public function consume(p:Player){
+		for (o in this.xml.elementsNamed('stat')){
+			switch o.get("id"){
+				case "health": 
+					p.addHealth(Std.parseInt(o.get("value")));
+				case "sanity":
+					p.addSanity(Std.parseInt(o.get("value")));
+				default:continue;
+			}
+		}
+	}
 
  
 
@@ -31,14 +43,21 @@ class ItemInfo {
 
     public static var items:StringMap<ItemInfo>;
     public static function get(item:String){
-        if(items.exists(item)){return items.get(item);} 
-        else {
-			if(item == "nullItem"){return null;}
-            if(items.exists(item) == false){trace("No item found : "+ item);}
-            return null;
-        }
+		if(items == null){
+			items = new StringMap<ItemInfo>();
+		}
+        if(items.exists(item)){
+			return items.get(item);
+		} else {
+			trace("No item found : "+ item);
+			return null;
+		}
+        
     }
     public static function loadItem(xml:Xml){
+		if (items == null) {
+			items = new StringMap<ItemInfo>();
+		}
         items.set(xml.get("id"),new ItemInfo(xml));
     }
 }

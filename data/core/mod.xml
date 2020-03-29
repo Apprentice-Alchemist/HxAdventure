@@ -5,15 +5,29 @@ function doTest(){
     var test = "string";
     trace(Std.is(test,String));
     trace(Math.random());
-    map = [1,2,3];
-    map2 = [];
-    <!-- copyMap(map,map2); -->
-    trace(map2);
-    return null;
+    map = new StringMap();
+    map2 = new StringMap();
+    map.set('thing',"thing");
+    copyMap(map,map2);
+    trace(map2.exists('thing'));
+    return true;
 }<action></action>
 doTest(); trace(new Xml(0));
 </action>
 <player id="default" health="100" sanity="50">
+    <!-- <slot id="weapon" noneItem="fists"/>
+    <slot id="armor" noneItem="skin"/>
+    <onDeath>
+    </onDeath> -->
+    <!--TODO : Add those things -->
 </player>
-<!-- <item id="test_item"/> -->
+<item id="fists" damage="1"/>
+<item id="skin" defense="1"/>
+
+<item id="health_potion" type="potion">
+    <stat id="health" value="5"/>
+</item>
+<item id="torch" type="torch">
+    <stat id="sanity" value="5"/>
+</item>
 </data>

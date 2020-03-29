@@ -57,21 +57,25 @@ class EventHandler {
         v.set("StringMap",StringMap);
         v.set("IntMap",IntMap);
         v.set("Date", Date);
-		// v.set("copyMap", function(from, to) {
-		// 	while (true) {
-		// 		var i = to.keys();
-		// 		if (i.hasNext()) {
-		// 			to.remove(i.next());
-		// 		} else {
-		// 			break;
-		// 		}
-		// 	}
-		// 	var k = from.keys();
-		// 	while (k.hasNext()) {
-		// 		var k1 = k.next();
-		// 		to.set(k1, from.get(k1));
-		// 	}
-		// });
+		v.set("classFields", function(o) {
+			if (Std.is(o, Class)) {
+				return Type.getClassFields(o);
+			} else {
+				return Type.getInstanceFields(Type.getClass(o));
+			}
+		});
+		v.set("Reflect", Reflect);
+		v.set("copyMap", function(from, to) {
+			var i = to.keys();
+			while (i.hasNext()) {
+				to.remove(i.next());
+			}
+			var k = from.keys();
+			while (k.hasNext()) {
+				var k1 = k.next();
+				to.set(k1, from.get(k1));
+			}
+		});
     }
     public dynamic static function additionalVars(v:Map<String,Dynamic>){
 

@@ -37,28 +37,24 @@ class Player {
         equipment = new Equipment();
         stats = new Stats();
    }
-   public function updateAttack(){
-       var damage = 0;
-       for (o in equipment.slots) {
-         damage = damage + o.damage;
-       }
-       return damage;
-    }
-    public function updateDefense(){
-		var defense = 0;
-		for (o in equipment.slots) {
-			// if (o.defense != null) {
-				defense = defense + o.defense;
-			// }
-        }
-		return damage;
-    }
     public function doEquip(item:Item){
         equipment.equip(this,item);
         return true;
     }
     public function updateStats(){
-        updateAttack();
-        updateDefense();
+		var damage = 0;
+		for (o in equipment.slots) {
+			damage = damage + o.info.damage;
+		}
+		var defense = 0;
+		for (o in equipment.slots) {
+			defense = defense + o.info.defense;
+		}
+    }
+    public function addHealth(v:Int){
+        this.health = this.health + v;
+    }
+    public function addSanity(v:Int){
+        this.sanity = this.sanity + v;
     }
 }
