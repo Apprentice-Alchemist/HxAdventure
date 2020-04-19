@@ -58,7 +58,12 @@ class Player extends EventDispatcher {
         this.health = this.health + v;
         dispatchEvent(new Event("change_health"));
     }
+    public function setHealth(v:Int){
+        this.health = v;
+		dispatchEvent(new Event("change_health"));
+    }
     public function addSanity(v:Int){
         this.sanity = this.sanity + v;
+		dispatchEvent(new Event("change_sanity"));
     }
 }
