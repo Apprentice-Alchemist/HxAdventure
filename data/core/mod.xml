@@ -1,19 +1,13 @@
 <xml version="1.0"/>
 <data>
-<action>
-function doTest(){
-    var test = "string";
-    trace(Std.is(test,String));
-    trace(Math.random());
-    map = new StringMap();
-    map2 = new StringMap();
-    map.set('thing',"thing");
-    copyMap(map,map2);
-    trace(map2.exists('thing'));
-    return true;
-}<action></action>
-doTest(); trace(new Xml(0));
-</action>
+<game>
+    <title screen="title"/>
+    <win screen="win"/>
+    <lose screen="game_over"/>
+</game>
+<screen type="title" id="title">
+<sprite path="data/ui/Adventure_Logo.png" x="12" y="12"/>
+</screen>
 <player id="default" health="100" sanity="50">
     <!-- <slot id="weapon" noneItem="fists"/>
     <slot id="armor" noneItem="skin"/>

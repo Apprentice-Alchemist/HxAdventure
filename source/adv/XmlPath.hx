@@ -1,4 +1,4 @@
-package lib.xml;
+package adv;
 
 class XmlPath {
     public var xml:Xml;

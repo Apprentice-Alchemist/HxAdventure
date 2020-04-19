@@ -1,9 +1,11 @@
-package game.player;
+package player;
 
-import game.item.Inventory;
-import game.item.Item;
-import game.player.PlayerInfo;
-class Player {
+import openfl.events.Event;
+import openfl.events.EventDispatcher;
+import item.Inventory;
+import item.Item;
+import player.PlayerInfo;
+class Player extends EventDispatcher {
     public var info:PlayerInfo;
     public var stats:Stats;
 
@@ -28,6 +30,7 @@ class Player {
     public var partners_map:Map<String, Partner>;
     
     public function new(info:PlayerInfo){
+        super();
         this.info = info;
         health = info.health;
         sanity = info.sanity;
@@ -53,6 +56,7 @@ class Player {
     }
     public function addHealth(v:Int){
         this.health = this.health + v;
+        dispatchEvent(new Event("change_health"));
     }
     public function addSanity(v:Int){
         this.sanity = this.sanity + v;

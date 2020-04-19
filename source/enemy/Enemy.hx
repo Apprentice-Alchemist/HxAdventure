@@ -1,4 +1,4 @@
-package game.enemy;
+package enemy;
  
 class Enemy {
     public var id:String;

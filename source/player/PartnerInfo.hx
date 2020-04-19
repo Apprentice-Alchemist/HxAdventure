@@ -1,6 +1,6 @@
-package game.player;
+package player;
 
-import lib.xml.XmlPath;
+import adv.XmlPath;
 
 class PartnerInfo {
 	public static var partners:Map<String, PartnerInfo> = null;

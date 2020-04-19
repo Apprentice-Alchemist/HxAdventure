@@ -1,15 +1,14 @@
-package lib.adv;
+package adv;
 
 import haxe.ds.IntMap;
 import haxe.ds.StringMap;
-import hscript.Expr;
 import hscript.Parser;
 import hscript.Interp;
 
 class EventHandler {
     public static var interp:Interp;
     public static var parser:Parser;
-    public static function interpret(expr:Expr){
+    public static function interpret(expr:Dynamic){
 		if (interp == null) {
             interp = new Interp();
 			loadVars(interp.variables);
@@ -38,6 +37,7 @@ class EventHandler {
             execute(xml.firstChild().nodeValue);
          };
     }
+    
     public static function loadVars(v:Map<String,Dynamic>){
 		v.set("null", null);
 		v.set("true", true);

@@ -1,7 +1,5 @@
-package game.player;
-
-import lib.xml.XmlPath;
- 
+package player;
+import adv.XmlPath;
 
 class PlayerInfo {
     public static var players:Map<String,PlayerInfo> = null;
@@ -11,7 +9,6 @@ class PlayerInfo {
         }
         var info = new PlayerInfo(xml);
         players.set(info.id,info);
-        // trace('Player Loaded : ' + info.id);
     }
     public static function get(e:String):Dynamic{
 		if (players == null) {

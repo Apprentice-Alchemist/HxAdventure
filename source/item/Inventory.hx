@@ -1,4 +1,4 @@
-package game.item;
+package item;
 
 class Inventory {
     public var items:Array<Item>;

@@ -1,11 +1,12 @@
-package game.item;
+package item;
 
-import game.player.Player;
+import adv.XmlPath;
+import player.Player;
 import haxe.ds.StringMap;
 
 class ItemInfo {
 	public var id:String;
-	public var xml:Xml;
+	public var xml:XmlPath;
 	// var canEquip:Bool = false;
 	// var canConsume:Bool = false;
 	public var type:String;
@@ -16,7 +17,7 @@ class ItemInfo {
 	public var durability:Int = 0;
 
 	public var canConsume:Bool;
-    public function new(_xml:Xml){
+    public function new(_xml:XmlPath){
 		xml = _xml;
 		id = xml.get("id");
 		type = xml.get("type");
@@ -54,7 +55,7 @@ class ItemInfo {
 		}
         
     }
-    public static function loadItem(xml:Xml){
+    public static function loadItem(xml:XmlPath){
 		if (items == null) {
 			items = new StringMap<ItemInfo>();
 		}

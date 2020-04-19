@@ -1,4 +1,4 @@
-package game.player;
+package player;
 
 class Partner {
     public var info:PartnerInfo;
