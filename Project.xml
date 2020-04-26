@@ -11,7 +11,7 @@
 
 	<set name="BUILD_DIR" value="export" />
 	<classpath name="source" />
-	<classpath name="arcane"/>
+	<classpath name="Arcane"/>
 	<assets path="data" include="*.png" />
 	<assets path="data" include="*.xml"/>
 	<assets path="data" include="*.ogg"/>
@@ -23,5 +23,5 @@
 	<haxelib name="hscript"/>
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 
-	<icon path="arcane.adventure_Icon.ico"/>
+	<icon path="Adventure_Icon.ico"/>
 </project>
