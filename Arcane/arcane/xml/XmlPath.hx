@@ -1,4 +1,4 @@
-package adv;
+package arcane.xml;
 
 class XmlPath {
     public var xml:Xml;
@@ -15,7 +15,7 @@ class XmlPath {
     public function set(att:String,s:String){
         return xml.set(att,s);
     }
-    public function elements(){
+    public function elements():Iterator<Xml>{
         return xml.elements();
     } 
     public function elementsNamed(name:String){

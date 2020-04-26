@@ -1,4 +1,4 @@
-package adv;
+package arcane.adv;
 
 import openfl.display.Sprite;
 

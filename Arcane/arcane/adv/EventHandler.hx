@@ -1,4 +1,4 @@
-package adv;
+package arcane.adv;
 
 import haxe.ds.IntMap;
 import haxe.ds.StringMap;
@@ -75,9 +75,10 @@ class EventHandler {
 				var k1 = k.next();
 				to.set(k1, from.get(k1));
 			}
-		});
+        });
+        if(additionalVars != null){
+            additionalVars(v);
+        }
     }
-    public dynamic static function additionalVars(v:Map<String,Dynamic>){
-
-    }
+    public static var additionalVars:(v:Map<String,Dynamic>) -> Void;
 }

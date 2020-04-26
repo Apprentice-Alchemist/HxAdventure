@@ -1,5 +1,5 @@
 package player;
-import adv.XmlPath;
+import arcane.xml.XmlPath;
 
 class PlayerInfo {
     public static var players:Map<String,PlayerInfo> = null;

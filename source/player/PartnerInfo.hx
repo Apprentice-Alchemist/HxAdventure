@@ -1,6 +1,6 @@
 package player;
 
-import adv.XmlPath;
+import arcane.xml.XmlPath;
 
 class PartnerInfo {
 	public static var partners:Map<String, PartnerInfo> = null;

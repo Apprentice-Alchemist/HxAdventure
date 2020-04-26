@@ -2,7 +2,7 @@
 <project>
 	<app title="Adventure : The Game" file="Adventure" main="Main" version="0.0.1" company="Apprentice Alchemist" />
 	<set name="SWF_VERSION" value="11.8" />
-	<app preloader="openfl.display.Preloader"/>
+	<app preloader="flixel.system.FlxPreloader" />
 
 	<window width="1300" height="700" fps="60" background="#000000" hardware="true" vsync="false"/>
 	<window if="html5" resizable="false" />
@@ -11,14 +11,17 @@
 
 	<set name="BUILD_DIR" value="export" />
 	<classpath name="source" />
+	<classpath name="arcane"/>
 	<assets path="data" include="*.png" />
 	<assets path="data" include="*.xml"/>
 	<assets path="data" include="*.ogg"/>
 
-	<haxelib name="openfl" />
-	<!-- <haxelib name="openfl-samples"/> -->
-	<!-- <haxelib name="flixel"/> -->
+	<haxelib name="flixel"/>
+	<!-- <haxelib name="Arcane"/> -->
+	<haxelib name="flixel-addons"/>
+	<haxelib name="flixel-demos"/>
 	<haxelib name="hscript"/>
-	
-	<icon path="Adventure_Icon.ico"/>
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+
+	<icon path="arcane.adventure_Icon.ico"/>
 </project>

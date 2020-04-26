@@ -11,3 +11,4 @@ class Item {
     public function consume(player:Player){
        return info.consume(player);
 }
+}

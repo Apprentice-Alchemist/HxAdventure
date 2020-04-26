@@ -1,6 +1,6 @@
 package item;
 
-import adv.XmlPath;
+import arcane.xml.XmlPath;
 import player.Player;
 import haxe.ds.StringMap;
 

@@ -1,37 +1,16 @@
 package;
-import openfl.net.SharedObject;
-import openfl.Lib;
+
 import player.PlayerInfo;
 import item.ItemInfo;
-import openfl.display.Bitmap;
-import adv.EventHandler;
-import adv.ModHandler;
-import openfl.display.Sprite;
-import ui.Title;
-import adv.Container;
-class Main extends Sprite {
-	public static var container:Container;
-	private static var save:SharedObject;
-	private static var settings:SharedObject;
-	public static function throwError(e:Dynamic){trace(e);}
-	public var title:Title;
+import arcane.adv.EventHandler;
+import arcane.adv.ModHandler;
+
+class Main extends arcane.adv.App {
 	public function new() {
-		super();
+		super(TitleScreen, Main.additionalVars, Main.loadActions);
 		try{
-		container = new Container(256,144);
-		save = SharedObject.getLocal("save","adventure");
-		settings = SharedObject.getLocal("settings","adventure");
-		EventHandler.additionalVars = Main.additionalVars;
-		ModHandler.extraActions = Main.loadActions;		
-		ModHandler.core_path = "data/core/mod.xml";
-		ModHandler.mods_path = "data/mods";
-		ModHandler.mod_file = "mod.xml";		
-		ModHandler.loadData();
-		
-		var title = new Title();
-		addChild(title);
 		}catch(e:Dynamic){
-			throwError(e);
+			trace(e);
 		}
 	}
 	public static function loadActions(action_map:Map<String, Dynamic>) {

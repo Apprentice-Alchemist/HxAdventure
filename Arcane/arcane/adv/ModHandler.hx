@@ -1,7 +1,7 @@
-package adv;
+package arcane.adv;
 
 import openfl.utils.Assets;
-
+import arcane.xml.XmlPath;
 class ModHandler{
 	public static var core_path:String = "data/core/core.xml";
     public static var mods_path:String = "data/mods/";
@@ -20,7 +20,7 @@ class ModHandler{
             ModHandler.parseXml(ModHandler.makeXml(Xml.parse(Assets.getText(o)).firstElement(),o));
         }
     }
-	public dynamic static function extraActions(action_map:Map<String,Dynamic>) {}
+	public static var extraActions:(action_map:Map<String,Dynamic>) -> Void;
     public static function loadActionMap(){
         if (action_map == null){
             action_map = new Map<String,Dynamic>();

@@ -1,6 +1,6 @@
 package ui;
 
-import adv.XmlPath;
+import arcane.xml.XmlPath;
 
 class ScreenInfo {
     public static var screens:Map<String,ScreenInfo>;
