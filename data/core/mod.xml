@@ -1,14 +1,6 @@
 <xml version="1.0"/>
 <test/>
 <data>
-<game>
-    <title screen="title"/>
-    <win screen="win"/>
-    <lose screen="game_over"/>
-</game>
-<screen type="title" id="title">
-<sprite path="data/ui/arcane.adventure_Logo.png" x="12" y="12"/>
-</screen>
 <player id="default" health="100" sanity="50">
     <!-- <slot id="weapon" noneItem="fists"/>
     <slot id="armor" noneItem="skin"/>
@@ -16,6 +8,7 @@
     </onDeath> -->
     <!--TODO : Add those things -->
 </player>
+
 <item id="fists" damage="1"/>
 <item id="skin" defense="1"/>
 

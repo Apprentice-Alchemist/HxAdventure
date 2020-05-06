@@ -1,10 +1,12 @@
 package player;
 
+import flixel.FlxG;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
 import item.Inventory;
 import item.Item;
 import player.PlayerInfo;
+import ui.*;
 class Player extends EventDispatcher {
     public var info:PlayerInfo;
     public var stats:Stats;
@@ -55,15 +57,31 @@ class Player extends EventDispatcher {
 		}
     }
     public function addHealth(v:Int){
-        this.health = this.health + v;
-        dispatchEvent(new Event("change_health"));
+        setHealth(health + v);
     }
     public function setHealth(v:Int){
         this.health = v;
-		dispatchEvent(new Event("change_health"));
+        dispatchEvent(new Event("change_health"));
+        if(this.health <= 0) healthDeath();
     }
     public function addSanity(v:Int){
-        this.sanity = this.sanity + v;
-		dispatchEvent(new Event("change_sanity"));
+        setSanity(sanity + v);
+    }
+    public function setSanity(v:Int){
+        this.sanity = v;
+        dispatchEvent(new Event("change_sanity"));
+        if(this.sanity <= 0) sanityDeath();
+    }
+    public function healthDeath(){
+
+    }
+    public function sanityDeath(){
+
+    }
+    public function showEquipment(){
+        FlxG.state.openSubState(new PlayerEquipment());
+    }
+    public function showInventory(){
+        FlxG.state.openSubState(new PlayerInventory());
     }
 }

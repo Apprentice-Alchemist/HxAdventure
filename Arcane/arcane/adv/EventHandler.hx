@@ -1,5 +1,6 @@
 package arcane.adv;
 
+import haxe.CallStack;
 import haxe.ds.IntMap;
 import haxe.ds.StringMap;
 import hscript.Parser;
@@ -30,7 +31,7 @@ class EventHandler {
         }
     }
     public static function execute(str:String){
-        try{_execute(str);}catch(e:Dynamic){trace("Script Error : " + e);}
+        try{_execute(str);}catch(e:Dynamic){trace("Script Error : " + CallStack.toString(CallStack.exceptionStack()));}
     }
     public static function executeXml(xml:Xml,p:String){
 		 if (xml.firstChild().nodeValue != null){
