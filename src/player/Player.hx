@@ -1,6 +1,6 @@
 package player;
 
-import flixel.FlxG;
+// import flixel.FlxG;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
 import item.Inventory;
@@ -79,9 +79,9 @@ class Player extends EventDispatcher {
 
     }
     public function showEquipment(){
-        FlxG.state.openSubState(new PlayerEquipment());
+        // FlxG.state.openSubState(new PlayerEquipment());
     }
     public function showInventory(){
-        FlxG.state.openSubState(new PlayerInventory());
+        // FlxG.state.openSubState(new PlayerInventory());
     }
 }
