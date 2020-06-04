@@ -1,0 +1,14 @@
+-cp src
+-main Main
+
+-lib heaps
+-lib heeps
+-lib arcane
+# -lib castle
+-lib hscript
+# -lib deepnightLibs
+-D resourcesPath=assets
+
+# -lib hlsdl
+-lib hldx
+-hl Adventure.hl

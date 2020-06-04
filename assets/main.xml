@@ -1,3 +1,0 @@
-<box style="padding: 5px;">
-    <button text="Click Me!" onclick="this.text='Thanks!'" style="font-size: 24px;" x="100" y="100"/>
-</box>

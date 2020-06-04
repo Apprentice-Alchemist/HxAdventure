@@ -2,31 +2,42 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "lime",
-			"command": "test",
-			"targetConfiguration": "HashLink",
+			"type": "hxml",
+			"file": "build.hxml",
 			"problemMatcher": [
 				"$haxe-absolute",
 				"$haxe",
 				"$haxe-error",
 				"$haxe-trace"
 			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
+			"group": "build",
+			"label": "HL",
+			"runOptions": {},
+			"options": {},
+			"detail": "Build Hashlink",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
 			}
 		},
 		{
-			"type": "lime",
-			"command": "build",
-			"targetConfiguration": "HTML5",
-			"problemMatcher": [
-				"$haxe-absolute",
-				"$haxe",
-				"$haxe-error",
-				"$haxe-trace"
+			"type": "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"HL"
 			],
-			"label": "lime: build html5"
+			"label": "Test HL",
+			"problemMatcher": [],
+			"command":["hl"],
+			"args": ["Adventure.hl"]
 		}
 	]
 }

@@ -1,4 +1,4 @@
-name: CI
+name: Deploy
 
 on: [push, pull_request, repository_dispatch]
 
@@ -9,22 +9,21 @@ jobs:
     - uses: actions/checkout@v2
       with:
         persist-credentials: "false"
-    - uses: lix-pm/setup-lix@master
-    - uses: HaxeFlixel/setup-flixel@master
+    - name: Install
+      uses: krdlab/setup-haxe@master
       with:
-        haxe-version: stable
-        flixel-versions: release
-        target: html5
-    - name: Extra Libs
+          haxe-version: 4.1.1
+    - name: Haxelibs
       run: |
-        haxelib install haxeui-core --quiet
-        haxelib install haxeui-flixel --quiet
+        haxelib git heaps https://github.com/HeapsIO/heaps.git --quiet
+        haxelib git heeps https://github.com/Yanrishatum/heeps --quiet
+        haxelib git arcane https://github.com/Apprentice-Alchemist/Arcane --quiet
     - name: Build
-      run: haxelib run lime build html5
+      run: haxe js.hxml
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
-        publish_dir: ./build/flixel/html5/bin
+        publish_dir: ./bin
         force_orphan: "true"
       if: github.ref == 'refs/heads/master'

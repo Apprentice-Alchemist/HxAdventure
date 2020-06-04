@@ -1,21 +1,20 @@
-<xml version="1.0"/>
-<test/>
+<?xml version="1.0" encoding="utf-8"?>
 <data>
-<player id="default" health="100" sanity="50">
-    <!-- <slot id="weapon" noneItem="fists"/>
-    <slot id="armor" noneItem="skin"/>
-    <onDeath>
-    </onDeath> -->
-    <!--TODO : Add those things -->
+<include id="data.xml"/>
+<level id="lvlone">
+    <area id="mansion"></area>
+    <area id="cave"></area>
+    <area id="ruins"></area>
+    <area id="corridor"></area>
+</level>
+<player id="def" health="100" defense="0">
 </player>
-
-<item id="fists" damage="1"/>
-<item id="skin" defense="1"/>
-
-<item id="health_potion" type="potion">
-    <stat id="health" value="5"/>
-</item>
-<item id="torch" type="torch">
-    <stat id="sanity" value="5"/>
-</item>
+<lang id="en_US">
+    <section id="areas">
+        <text id="mansion">Mansion</text>
+        <text id="cave">Cave</text>
+        <text id="ruins">Ruins</text>
+        <text id="corridor">Corridor</text>
+    </section>
+</lang>
 </data>

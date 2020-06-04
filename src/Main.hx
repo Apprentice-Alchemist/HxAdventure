@@ -1,38 +1,45 @@
 package ;
 
-import haxe.ui.containers.Box;
-import haxe.ui.core.Screen;
-import haxe.ui.components.Button;
-import haxe.ui.containers.VBox;
-import flixel.FlxG;
-import haxe.ui.HaxeUIApp;
-import haxe.ui.core.Component;
-import haxe.ui.macros.ComponentMacros;
+import player.PartnerInfo;
+import item.ItemInfo;
+import player.PlayerInfo;
+import arcane.xml.XmlPath;
+import haxe.EntryPoint;
+import hxd.Res;
+import arcane.adv.ModHandler;
+import arcane.adv.EventHandler;
 
-class Main {
-    public static function main() {
-        #if hl
-        hl.UI.closeConsole();
-        #end
-        var app = new HaxeUIApp();
-        app.ready(function() {
-            // var main:Component = ComponentMacros.buildComponent("assets/main.xml");
-            var main:Component = new Box();
-            main.paddingBottom = main.paddingTop = main.paddingLeft = main.paddingRight = 50;
-            var button:Button = new Button();
-            button.text = "Play";
-            button.fontSize = 32;
-            button.left = button.screen.width/2;
-            button.top = button.screen.height/2;
-            button.iconPosition = "down";
-            button.paddingLeft = button.paddingTop = button.paddingRight = button.paddingBottom = 20;
-            // button.layout.
-            button.onClick = function(e){
-                button.text == "Fail!" ? button.text = "Play" : button.text = "Fail!";
-            }
-            main.addComponent(button);
-            app.addComponent(main);
-            app.start();            
-        });
+class Main extends arcane.adv.App
+{
+    public static function main(){
+        EventHandler.additionalVars = additionalVars;
+        ModHandler.extraActions = extraActions;
+		arcane.Engine.__init(new Main());
+    }
+    static function startLoading(?onComplete:Void->Void){
+		#if hl
+		Res.initLocal();
+		#elseif js
+		Res.initEmbed();
+		#end
+		ModHandler.loadData(onComplete);
+    }
+    override function init() {
+        new TitleScreen();
+    }
+    override function loadAssets(onLoaded:() -> Void) {
+        EntryPoint.addThread(startLoading.bind(onLoaded));
+    }
+    override function update(dt:Float){
+        super.update(dt);
+    }
+    public static function additionalVars(v:Map<String,Dynamic>){
+        
+    }
+    public static function extraActions(v:Map<String,XmlPath -> Void>){
+        v.set("player",PlayerInfo.load);
+        v.set("item",ItemInfo.loadItem);
+        v.set("partner",PartnerInfo.load);
+        // v.set("area")
     }
 }
