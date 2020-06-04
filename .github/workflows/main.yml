@@ -18,6 +18,7 @@ jobs:
         haxelib git heaps https://github.com/HeapsIO/heaps.git --quiet
         haxelib git heeps https://github.com/Yanrishatum/heeps --quiet
         haxelib git arcane https://github.com/Apprentice-Alchemist/Arcane --quiet
+        haxelib install hscript --quiet
     - name: Build
       run: haxe js.hxml
     - name: Deploy
