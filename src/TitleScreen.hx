@@ -46,9 +46,7 @@ class TitleScreen extends ui.Screen {
         #end
 	}
 
-	function clickPlay(e:Event) {
-    
-    }
+	function clickPlay(e:Event) new LevelScreen();
 
 	function clickOptions(e:Event) {}
 }

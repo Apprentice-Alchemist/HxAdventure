@@ -12,3 +12,5 @@
 # -lib hlsdl
 -lib hldx
 -hl Adventure.hl
+# -hl out/main.c
+# cl /Ox /Foout/main /Fe out/Adventure.exe -I "C:\LanguageToolkits\HaxeToolkit\hashlink/include" -I "out" "out/main.c" "C:/LanguageToolkits/HaxeToolkit/hashlink/ui.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/directx.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/openal.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/fmt.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/libhl.lib"
