@@ -6,7 +6,7 @@
 			"hxml": "build.hxml",
 			"name": "Launch HL",
 			"preLaunchTask": "HL",
-			"program": "export/Adventure.hl",
+			"program": "Adventure.hl",
 			"request": "launch",
 			"cwd": "${workspaceFolder}",
 			"internalConsoleOptions": "openOnSessionStart",

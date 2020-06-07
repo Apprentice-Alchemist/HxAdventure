@@ -1,7 +1,9 @@
 package ;
 
+import hxd.res.DefaultFont;
+import h2d.Text;
+import arcane.Engine;
 import arcane.adv.App;
-import arcane.signal.SignalDispatcher;
 import player.PartnerInfo;
 import item.ItemInfo;
 import player.PlayerInfo;
@@ -14,16 +16,15 @@ import arcane.Engine as ArcEngine;
 
 class Main extends arcane.adv.App
 {
+    public static function __init__(){
+
+    }
     public static var inst:Main;
     public static function main(){
-        ArcEngine.closeConsole();
+        #if hl hl.UI.closeConsole(); #end
         EventHandler.additionalVars = additionalVars;
         ModHandler.extraActions = extraActions;
-        ArcEngine.__init(isnt = new Main());
-    }
-    override public function new() {
-		__dispatcher = new SignalDispatcher<Main>(this);
-        super();                
+        ArcEngine.__init(inst = new Main());
     }
     static function startLoading(?onComplete:Void->Void){
 		#if hl
@@ -38,9 +39,6 @@ class Main extends arcane.adv.App
     }
     override function loadAssets(onLoaded:() -> Void) {
         EntryPoint.addThread(startLoading.bind(onLoaded));
-    }
-    override function update(dt:Float){
-        super.update(dt);
     }
     public static function additionalVars(v:Map<String,Dynamic>){
         v.set("player",null);

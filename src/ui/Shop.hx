@@ -1,13 +1,13 @@
 package ui;
 
-class Shop extends h2d.Scene{
+import h2d.Object;
+
+class Shop extends h2d.Object{
     final old:Null<Screen> = null;
     override public function new(pre:Screen){
         super();
-        old = pre;
 		arcane.Engine.addUpdate(update);
 		arcane.Engine.app.listen("resize", onResize);
-		arcane.Engine.app.setScene(this, false);
     }
     public function close() {
         // arcane

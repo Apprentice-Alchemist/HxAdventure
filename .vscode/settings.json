@@ -3,5 +3,6 @@
 		"export/**/*.hx": true,
 		"export/**": true,
 		".git/**": true
-	}
+	},
+	"liveServer.settings.root": "/bin"
 }

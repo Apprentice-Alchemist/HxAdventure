@@ -4,9 +4,8 @@
 -lib heaps
 -lib heeps
 -lib arcane
-# -lib castle
 -lib hscript
-# -lib deepnightLibs
+
 -D resourcesPath=assets
 
 -js bin/Adventure.js
