@@ -1,8 +1,6 @@
 package ;
 
-import hxd.res.DefaultFont;
-import h2d.Text;
-import arcane.Engine;
+import hxd.Pad;
 import arcane.adv.App;
 import player.PartnerInfo;
 import item.ItemInfo;
@@ -36,6 +34,7 @@ class Main extends arcane.adv.App
     }
     override function init() {
         new TitleScreen();
+        
     }
     override function loadAssets(onLoaded:() -> Void) {
         EntryPoint.addThread(startLoading.bind(onLoaded));

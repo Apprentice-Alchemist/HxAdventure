@@ -49,6 +49,6 @@ class TitleScreen extends ui.Screen {
 	function clickPlay(e:Event) new LevelScreen();
 
 	function clickOptions(e:Event) {
-		@:privateAccess new ui.Options().close();
+		@:privateAccess new ui.Options(this);
 	}
 }
