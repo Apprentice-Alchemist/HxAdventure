@@ -1,0 +1,3 @@
+REM haxe build.hxml
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+cl /Ox /Foout/main /FeAdventure.exe -I "C:\LanguageToolkits\HaxeToolkit\hashlink/include" -I "out" "out/main.c" "C:/LanguageToolkits/HaxeToolkit/hashlink/ui.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/directx.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/openal.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/fmt.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/libhl.lib" /link /SUBSYSTEM:WINDOWS

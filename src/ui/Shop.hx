@@ -3,8 +3,7 @@ package ui;
 import h2d.Object;
 
 class Shop extends h2d.Object{
-    final old:Null<Screen> = null;
-    override public function new(pre:Screen){
+    override public function new(){
         super();
 		arcane.Engine.addUpdate(update);
 		arcane.Engine.app.listen("resize", onResize);

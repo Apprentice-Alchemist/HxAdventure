@@ -1,3 +1,5 @@
 *.js
 *.hl
 out/*
+*.exe
+*.hdll

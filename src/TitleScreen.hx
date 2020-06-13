@@ -1,7 +1,5 @@
 package;
 
-import hxd.Save;
-import h3d.scene.Skin.Joint;
 import h2d.Flow;
 import hxd.Event;
 import h2d.Bitmap;
