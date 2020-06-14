@@ -5,6 +5,7 @@ import arcane.signal.Signal;
 import h2d.Text;
 import ui.Button;
 
+@:pure
 class LevelScreen extends ui.Screen {
 
     var text:Text;
@@ -15,6 +16,7 @@ class LevelScreen extends ui.Screen {
     var inventory:Button;
     var explore:Button;
     var shop:Button;
+
     public function new() {
         super();
         Adventure.start();
@@ -41,7 +43,7 @@ class LevelScreen extends ui.Screen {
         text.setScale(2);
 
         stats = new Text(DefaultFont.get(),this);
-        stats.text = "You have " + Adventure.player.health + " health and " + Adventure.player.sanity + " sanity.";
+        stats.text = "You have " + Adventure.player.get().health + " health and " + Adventure.player.get().sanity + " sanity.";
         stats.setScale(2);
         stats.textAlign = Left;
         addChild(stats);
@@ -49,7 +51,7 @@ class LevelScreen extends ui.Screen {
         onResize(null);
     }
     override function update(dt:Float) {
-		stats.text = "You have " + Adventure.player.health + " health and " + Adventure.player.sanity + " sanity.";
+		stats.text = "You have " + Adventure.player.get().health + " health and " + Adventure.player.get().sanity + " sanity.";
     }
     override function onResize(s:Signal) {
         equipment.y = inventory.y = this.height - (inventory.height * inventory.scaleX) - 20;

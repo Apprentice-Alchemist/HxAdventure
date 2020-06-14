@@ -14,7 +14,7 @@ class Shop extends h2d.Object{
     public function update(dt:Float) {
 
     }
-    public function onResize(_){
-
+    public function onResize(s:arcane.signal.Signal){
+        
     }
 }
