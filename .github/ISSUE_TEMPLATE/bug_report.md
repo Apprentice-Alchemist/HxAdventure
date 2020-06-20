@@ -8,13 +8,13 @@ assignees: Apprentice-Alchemist
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+Put a clear description of the bug here.
 
 **To Reproduce**
-Please mention how to reproduce the bug.
+Please mention how to reproduce the bug, it's really helpful when trying to fix it.
 
 **Screenshots**
 If necessary.
 
 **Additional context**
-Please mention the version of the game you're using (which can be seen on the title screen), and what browser you're on.
+Please mention which version of the game you're playing (which can be seen on the title screen), and what browser you're on.
