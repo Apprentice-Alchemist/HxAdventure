@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+<lang id="en_US">
+    <section id="common">
+        <text id="areaselect">Choose an area</text>
+    </section>
+    <section id="areas">
+        <text id="mansion">Mansion</text>
+        <text id="cave">Cave</text>
+        <text id="ruins">Ruins</text>
+        <text id="corridor">Corridor</text>
+    </section>
+    <section id="achievements.names">
+        <text id="test">Test</text>
+    </section>
+</lang>
+</data>

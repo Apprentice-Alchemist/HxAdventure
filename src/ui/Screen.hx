@@ -9,7 +9,12 @@ class Screen extends h2d.Scene {
 		arcane.Engine.app.setScene(this, true);
 	}
 
-	public function update(dt:Float) {}
+	public function update(dt:Float) {
+		if (hxd.Key.isPressed(hxd.Key.X) && !Options.shown)
+			new Options(this);
+		else if (hxd.Key.isPressed(hxd.Key.X) && Options.shown && Options.inst != null)
+			Options.doClose();
+	}
 
 	public function onResize(_) {}
 }

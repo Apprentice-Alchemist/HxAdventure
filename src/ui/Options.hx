@@ -11,8 +11,16 @@ class Options extends h2d.Interactive {
     var c:Bitmap;
     var shade:Bitmap;
     var close:SButton;
+
+    public static var shown:Bool = false;
+    public static var inst:Options;
+
     public function new(?parent:Object){
+        trace("Options shown");
+        trace(parent);
         super(parent.getScene().width,parent.getScene().height,parent);
+        shown = true;
+        inst = this;
         Main.inst.listen("resize",onResize);
         var a = Tile.fromColor(0x333333, 410, 410);
         var b = Tile.fromColor(0x666666, 400, 400);
@@ -23,11 +31,12 @@ class Options extends h2d.Interactive {
         addChild(t);
         addChild(c);
         close = new SButton(3,"X",this,function(_){
-            this.remove();
+            doClose();
         });
         onResize(null);        
     }
     public function onResize(_){
+        trace("Opts resize");
         this.width = getScene().width;
         this.height = getScene().height;
         shade.remove();
@@ -42,6 +51,13 @@ class Options extends h2d.Interactive {
     }
     override function handleEvent(e:Event){
         e.propagate = false;
+    }
+    public static function doClose(){
+        if(inst != null){
+            inst.remove();
+            inst = null;
+            shown = false;
+        }
     }
     
 }

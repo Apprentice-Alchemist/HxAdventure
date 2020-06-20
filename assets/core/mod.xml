@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-<include id="data.xml"/>
-<level id="lvlone">
-    <area id="mansion"></area>
-    <area id="cave"></area>
-    <area id="ruins"></area>
-    <area id="corridor"></area>
-</level>
-<player id="default" health="10" sanity="10" defense="0">
-</player>
-<lang id="en_US">
-    <section id="areas">
-        <text id="mansion">Mansion</text>
-        <text id="cave">Cave</text>
-        <text id="ruins">Ruins</text>
-        <text id="corridor">Corridor</text>
-    </section>
-</lang>
+    <include id="data.xml"/>
+    <include id="enemies.xml"/>
+    <include id="items.xml"/>
+    <include id="levels/levels.xml"/>
+    <include id="player.xml"/>
+    <include id="lang/en_US.xml"/>
 </data>

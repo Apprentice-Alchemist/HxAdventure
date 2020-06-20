@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+<level id="one">
+    <area id="mansion">
+        <intro id="test" name="test">
+            <event id="testing" type="battle" p="2">
+                <enemy id="test_enemy"/>
+            </event>
+        </intro>
+    </area>
+    <area id="cave"></area>
+    <area id="ruins"></area>
+    <area id="corridor"></area>
+</level>
+</data>

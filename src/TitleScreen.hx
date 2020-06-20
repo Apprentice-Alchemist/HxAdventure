@@ -7,8 +7,8 @@ import ui.Button;
 
 class TitleScreen extends ui.Screen {
 	var options:Button;
-    var play:Button;
-    var exit:Button;
+	var play:Button;
+	var exit:Button;
 	var bm:Array<Bitmap> = [];
 	var buttons:Flow;
 	var titlelogo:Bitmap;
@@ -18,12 +18,12 @@ class TitleScreen extends ui.Screen {
 		addChild(titlelogo = new Bitmap(hxd.Res.ui.Adventure_Logo.toTile(), this));
 		titlelogo.scaleX = titlelogo.scaleY = 0.75;
 		addChild(play = new Button(3, "Play", this, clickPlay));
-        addChild(options = new Button(3, "Options", this, clickOptions));
-        #if hl
-        addChild(exit = new Button(3,"Exit",this,function(_){
-            hxd.System.exit();
-        }));
-        #end
+		addChild(options = new Button(3, "Options", this, clickOptions));
+		#if hl
+		addChild(exit = new Button(3, "Exit", this, function(_) {
+			hxd.System.exit();
+		}));
+		#end
 		onResize(null);
 	}
 
@@ -37,14 +37,16 @@ class TitleScreen extends ui.Screen {
 		play.y = titlelogo.y + titlelogo.tile.height + 10;
 
 		options.x = (width / 2) - ((options.width * options.scaleX) / 2) - 1;
-        options.y = play.y + (play.height * play.scaleY) + 5;
-        #if hl
-        exit.x = (width / 2) - ((exit.width * exit.scaleX) / 2) - 1;
-        exit.y = options.y + (options.height * options.scaleY) + 5;
-        #end
+		options.y = play.y + (play.height * play.scaleY) + 5;
+		#if hl
+		exit.x = (width / 2) - ((exit.width * exit.scaleX) / 2) - 1;
+		exit.y = options.y + (options.height * options.scaleY) + 5;
+		#end
 	}
 
-	function clickPlay(e:Event) new LevelScreen();
+	function clickPlay(e:Event) {
+		new LevelScreen();
+	}
 
 	function clickOptions(e:Event) {
 		@:privateAccess new ui.Options(this);

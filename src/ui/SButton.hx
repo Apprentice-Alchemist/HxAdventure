@@ -14,7 +14,7 @@ class SButton extends h2d.Interactive {
 	private var txt:Text;
 
 	public function new(?scale:Int = 1, label:String, ?parent:h2d.Object, onClick:Event->Void) {
-        var tiles = hxd.Res.ui.button_png.toTile().split(3, true);
+        var tiles = hxd.Res.ui.button.toTile().split(3, true);
 		super(tiles[0].width, tiles[0].height, parent);
 		this.onClick = onClick;
 		txt = new Text(hxd.res.DefaultFont.get(), this);

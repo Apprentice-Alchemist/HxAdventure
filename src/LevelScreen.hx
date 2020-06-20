@@ -1,11 +1,11 @@
 package;
 
+import explore.AreaSelect;
 import hxd.res.DefaultFont;
 import arcane.signal.Signal;
 import h2d.Text;
 import ui.Button;
 
-@:pure
 class LevelScreen extends ui.Screen {
 
     var text:Text;
@@ -29,7 +29,7 @@ class LevelScreen extends ui.Screen {
         });
         addChild(inventory);
         explore = new Button(3,"Explore",this,function(_){
-
+            new AreaSelect();
         });
         addChild(explore);
         shop = new Button(3,"Shop",this,function(_){
@@ -51,7 +51,8 @@ class LevelScreen extends ui.Screen {
         onResize(null);
     }
     override function update(dt:Float) {
-		stats.text = "You have " + Adventure.player.get().health + " health and " + Adventure.player.get().sanity + " sanity.";
+        stats.text = "You have " + Adventure.player.get().health + " health and " + Adventure.player.get().sanity + " sanity.";
+        super.update(dt);
     }
     override function onResize(s:Signal) {
         equipment.y = inventory.y = this.height - (inventory.height * inventory.scaleX) - 20;
@@ -62,9 +63,9 @@ class LevelScreen extends ui.Screen {
         explore.x = equipment.x;
         shop.x = inventory.x;
 
+		text.maxWidth = this.width / 3;
 		text.x = this.width / 2 - text.textWidth;
         text.y = 50;
-        text.maxWidth = this.width / 3;   
         
         stats.maxWidth = stats.calcTextWidth(stats.text);
         stats.y = shop.y - (stats.textHeight * stats.scaleY) - 10;

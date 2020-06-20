@@ -8,10 +8,8 @@ import arcane.common.Mutable;
 class Adventure {
     public static function start(){
         player.set(new Player(PlayerInfo.get("default")));
+        level.set(new Level(LevelInfo.get("one")));
     }
-    public static var player:Mutable<Player> = new Mutable();
-    public static var level:Mutable<Level> = new Mutable();
+    public static var player = new Mutable<Player>();
+    public static var level = new Mutable<Level>();
 }
-
-
-

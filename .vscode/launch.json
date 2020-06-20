@@ -3,7 +3,7 @@
 	"configurations": [
 		{
 			"type": "hl",
-			"hxml": "build.hxml",
+			// "hxml": "build.hxml",
 			"name": "Launch HL",
 			"preLaunchTask": "HL",
 			"program": "Adventure.hl",

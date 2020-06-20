@@ -6,13 +6,11 @@ class PlayerInfo {
     public static function load(xml:XmlPath){
         var info = new PlayerInfo(xml);
         players.set(info.id,info);
+        trace('Player loaded : ${info.id}');
     }
     public static function get(e:String):Null<PlayerInfo>{
-        if(players.exists(e)) return players.get(e);
-        else {
-            trace("No Player found : " + e);
-            return null;
-        }
+		if (!players.exists(e)) trace("No Player found : " + e);
+        return players.get(e);
     }
 
     public final id:String = "";
