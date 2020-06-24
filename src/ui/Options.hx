@@ -16,8 +16,6 @@ class Options extends h2d.Interactive {
     public static var inst:Options;
 
     public function new(?parent:Object){
-        trace("Options shown");
-        trace(parent);
         super(parent.getScene().width,parent.getScene().height,parent);
         shown = true;
         inst = this;
@@ -36,7 +34,6 @@ class Options extends h2d.Interactive {
         onResize(null);        
     }
     public function onResize(_){
-        trace("Opts resize");
         this.width = getScene().width;
         this.height = getScene().height;
         shade.remove();

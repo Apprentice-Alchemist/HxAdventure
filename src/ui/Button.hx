@@ -23,7 +23,7 @@ class Button extends h2d.Interactive {
 		txt.text = label;
 		txt.x = 0;
 		txt.y = 0;
-		txt.color.setColor(0xffffffff);
+		txt.color.setColor(0x11111111);
 		for (o in tiles) {
 			o.scaleToSize(o.width * ((Math.ceil(txt.textHeight) + 4) / o.height) ,  ((Math.ceil(txt.textHeight) + 4) / o.height) * o.height);
 		}

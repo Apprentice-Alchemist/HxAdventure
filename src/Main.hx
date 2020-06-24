@@ -1,23 +1,18 @@
 package;
 
-import hxd.res.DefaultFont;
 import arcane.common.Achievements.Achievement;
 import hxd.Res;
 using arcane.Utils;
 
-class Main extends App {
-	public static function __init__(){
-		
-	}
+class Main extends arcane.adv.App {
 	public static var inst:Main;
-	// public static final font:Mutable<h2d.Font> = new Mutable();
+	
 	public static function main() {
-		
 		EventHandler.additionalVars = additionalVars;
 		ModHandler.extraActions = extraActions;
 		Achievements.onAchievement = function(a:Achievement){
 			function show(x:Achievement,scene){
-
+				
 			}
 			trace(a);
 			if(Main.inst.s2d != null){
@@ -26,6 +21,7 @@ class Main extends App {
 		}
 		
 		Engine.init(inst = new Main());
+		Engine.sound.music.play(hxd.Res.music.Adventure_The_Walk,true);
 	}
 
 	static function startLoading(?onComplete:Void->Void) {
@@ -38,7 +34,6 @@ class Main extends App {
 	}
 
 	override function init() {
-		// font.set(hxd.Res.Immortal.build(DefaultFont.get().size));
 		new TitleScreen();
 	}
 

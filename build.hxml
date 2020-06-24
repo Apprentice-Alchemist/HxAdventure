@@ -1,11 +1,12 @@
 -cp src
 -main Main
--debug
+
 -lib heaps
 -lib heeps
 -lib arcane
--lib hscript
 
+-lib hscript
+-D hscriptPos
 -D resourcesPath=assets
 
 -lib hldx

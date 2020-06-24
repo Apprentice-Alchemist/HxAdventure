@@ -9,7 +9,7 @@ class Shop extends h2d.Object{
 		arcane.Engine.app.listen("resize", onResize);
     }
     public function close() {
-        // arcane
+       
     }
     public function update(dt:Float) {
 
