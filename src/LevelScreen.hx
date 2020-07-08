@@ -18,6 +18,7 @@ class LevelScreen extends ui.Screen {
     var shop:Button;
 
     public function new() {
+        hxd.Res.images.logo.HaxeFlixel.entry.getText();
         super();
         Adventure.start();
         equipment = new Button(3,"Equipment",this,function(_){
@@ -49,6 +50,7 @@ class LevelScreen extends ui.Screen {
         addChild(stats);
         addChild(shop);
         onResize(null);
+
     }
     override function update(dt:Float) {
         stats.text = "You have " + Adventure.player.get().health + " health and " + Adventure.player.get().sanity + " sanity.";

@@ -2,26 +2,23 @@ package;
 
 import arcane.common.Achievements.Achievement;
 import hxd.Res;
+
 using arcane.Utils;
 
-class Main extends arcane.adv.App {
+class Main extends arcane.App {
 	public static var inst:Main;
-	
+
 	public static function main() {
 		EventHandler.additionalVars = additionalVars;
 		ModHandler.extraActions = extraActions;
-		Achievements.onAchievement = function(a:Achievement){
-			function show(x:Achievement,scene){
-				
-			}
+		Achievements.onAchievement = function(a:Achievement) {
+			function show(x:Achievement, scene) {}
 			trace(a);
-			if(Main.inst.s2d != null){
-				show(a,Main.inst.s2d);
+			if (Main.inst.s2d != null) {
+				show(a, Main.inst.s2d);
 			}
 		}
-		
 		Engine.init(inst = new Main());
-		Engine.sound.music.play(hxd.Res.music.Adventure_The_Walk,true);
 	}
 
 	static function startLoading(?onComplete:Void->Void) {
@@ -47,13 +44,13 @@ class Main extends arcane.adv.App {
 
 	public static function additionalVars(v:Map<String, Dynamic>) {
 		v.set("getPlayer", Adventure.player.get);
-		v.set("getLevel",Adventure.level.get);
+		v.set("getLevel", Adventure.level.get);
 	}
 
 	public static function extraActions(v:Map<String, XmlPath->Void>) {
 		v.set("player", PlayerInfo.load);
 		v.set("item", ItemInfo.loadItem);
 		v.set("partner", PartnerInfo.load);
-		v.set("level",LevelInfo.load);
+		v.set("level", LevelInfo.load);
 	}
 }

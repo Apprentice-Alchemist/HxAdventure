@@ -5,7 +5,7 @@
 -lib heeps
 -lib arcane
 -lib hscript
-
+-D hscriptPos
 -D resourcesPath=assets
 
 -js bin/Adventure.js

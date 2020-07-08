@@ -26,18 +26,51 @@
 		},
 		{
 			"type": "shell",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
+			"group": "build",
 			"dependsOrder": "sequence",
 			"dependsOn": [
 				"HL"
 			],
 			"label": "Test HL",
 			"problemMatcher": [],
-			"command":["hl"],
-			"args": ["Adventure.hl"]
+			"command": [
+				"hl"
+			],
+			"args": [
+				"Adventure.hl"
+			]
+		},
+		{
+			"type": "hxml",
+			"file": "hlc.hxml",
+			"problemMatcher": [
+				"$haxe-absolute",
+				"$haxe",
+				"$haxe-error",
+				"$haxe-trace"
+			],
+			"group": "build",
+			"label": "HLC",
+			"runOptions": {},
+			"options": {},
+			"detail": "Build Hashlink",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Build HLC",
+			"group": "build",
+			"dependsOn": "HLC",
+			"dependsOrder": "sequence",
+			"command": "build.bat",
+			"problemMatcher": []
 		}
 	]
 }

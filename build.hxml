@@ -1,10 +1,13 @@
 -cp src
 -main Main
-
+# -lib haxeui-core
+# -lib haxeui-heaps
 -lib heaps
+# -lib flixel
+# -lib openfl
+# -lib lime
 -lib heeps
 -lib arcane
-
 -lib hscript
 -D hscriptPos
 -D resourcesPath=assets

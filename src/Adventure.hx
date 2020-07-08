@@ -11,5 +11,9 @@ class Adventure {
         level.set(new Level(LevelInfo.get("one")));
     }
     public static var player = new Mutable<Player>();
+    public static var health = new Mutable<Int>(null,function(){
+        return player.get().health;
+    });
+    // public st
     public static var level = new Mutable<Level>();
 }

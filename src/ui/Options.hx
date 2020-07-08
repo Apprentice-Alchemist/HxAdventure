@@ -16,6 +16,7 @@ class Options extends h2d.Interactive {
     public static var inst:Options;
 
     public function new(?parent:Object){
+        trace("Options shown!");
         super(parent.getScene().width,parent.getScene().height,parent);
         shown = true;
         inst = this;
@@ -56,5 +57,4 @@ class Options extends h2d.Interactive {
             shown = false;
         }
     }
-    
 }
