@@ -1,6 +1,6 @@
 package item;
 
-import arcane.xml.XmlPath;
+import util.XmlPath;
 import player.Player;
 import haxe.ds.StringMap;
 
@@ -11,7 +11,7 @@ class ItemInfo {
 	var canEquip:Bool = false;
 	var canConsume:Bool = false;
 
-	public var type:String;
+	@:xml(<slot/>) public var type:String;
 	public var slot:String;
 	// On equip stuff
 	public var damage:Int = 0;
@@ -24,13 +24,13 @@ class ItemInfo {
 		type = xml.get("type");
 		slot = xml.get("slot");
 
-		if(xml.get("isEquipment") == "true"){
+		if (xml.get("isEquipment") == "true") {
 			canEquip = true;
-		damage = Utils.parseInt(xml.get("damage"));
-		defense = Utils.parseInt(xml.get("defense"));
-		durability = Utils.parseInt(xml.get("durability"));
+			damage = parseInt(xml.get("damage"));
+			defense = parseInt(xml.get("defense"));
+			durability = parseInt(xml.get("durability"));
 		}
-		if(xml.get("consumable") == "true"){
+		if (xml.get("consumable") == "true") {
 			canEquip = false;
 			canConsume = true;
 		}
@@ -40,9 +40,9 @@ class ItemInfo {
 		for (o in this.xml.elementsNamed('stat')) {
 			switch o.get("id") {
 				case "health":
-					p.addHealth(Utils.parseInt(o.get("value")));
+					p.addHealth(Std.parseInt(o.get("value")));
 				case "sanity":
-					p.addSanity(Utils.parseInt(o.get("value")));
+					p.addSanity(Std.parseInt(o.get("value")));
 				default:
 			}
 		}
@@ -62,7 +62,7 @@ class ItemInfo {
 		}
 	}
 
-	public static function loadItem(xml:XmlPath) {
+	public static function make(xml:XmlPath) {
 		if (items == null) {
 			items = new StringMap<ItemInfo>();
 		}

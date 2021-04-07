@@ -1,8 +1,5 @@
 package player;
 
-import arcane.signal.Signal;
-import arcane.signal.SignalDispatcher;
-
 class Stats extends SignalDispatcher{
     public var stats:Map<String,Int>;
     public function set(stat:String,value:Int){

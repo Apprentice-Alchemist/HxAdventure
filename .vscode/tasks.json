@@ -2,75 +2,27 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "hxml",
-			"file": "build.hxml",
+			"type": "haxe",
+			"args": "active configuration",
 			"problemMatcher": [
 				"$haxe-absolute",
 				"$haxe",
 				"$haxe-error",
 				"$haxe-trace"
 			],
-			"group": "build",
-			"label": "HL",
-			"runOptions": {},
-			"options": {},
-			"detail": "Build Hashlink",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "haxe: active configuration",
 			"presentation": {
 				"echo": true,
 				"reveal": "silent",
 				"focus": false,
 				"panel": "shared",
 				"showReuseMessage": true,
-				"clear": true
+				"clear": false
 			}
-		},
-		{
-			"type": "shell",
-			"group": "build",
-			"dependsOrder": "sequence",
-			"dependsOn": [
-				"HL"
-			],
-			"label": "Test HL",
-			"problemMatcher": [],
-			"command": [
-				"hl"
-			],
-			"args": [
-				"Adventure.hl"
-			]
-		},
-		{
-			"type": "hxml",
-			"file": "hlc.hxml",
-			"problemMatcher": [
-				"$haxe-absolute",
-				"$haxe",
-				"$haxe-error",
-				"$haxe-trace"
-			],
-			"group": "build",
-			"label": "HLC",
-			"runOptions": {},
-			"options": {},
-			"detail": "Build Hashlink",
-			"presentation": {
-				"echo": true,
-				"reveal": "silent",
-				"focus": false,
-				"panel": "shared",
-				"showReuseMessage": true,
-				"clear": true
-			}
-		},
-		{
-			"type": "shell",
-			"label": "Build HLC",
-			"group": "build",
-			"dependsOn": "HLC",
-			"dependsOrder": "sequence",
-			"command": "build.bat",
-			"problemMatcher": []
 		}
 	]
 }

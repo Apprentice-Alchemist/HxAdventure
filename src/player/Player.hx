@@ -1,14 +1,10 @@
 package player;
 
-// import flixel.FlxG;
-import arcane.signal.Signal;
-import arcane.signal.SignalDispatcher;
 import item.Inventory;
 import item.Item;
 import player.PlayerInfo;
-import ui.*;
 
-class Player extends arcane.signal.SignalDispatcher {
+class Player extends SignalDispatcher {
 	public var info:PlayerInfo;
 	public var stats:Stats;
 

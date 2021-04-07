@@ -1,11 +1,11 @@
 package player;
 
-import arcane.xml.XmlPath;
+import util.XmlPath;
 
 class PartnerInfo {
 	public static final partners:Map<String, PartnerInfo> = new Map<String, PartnerInfo>();
 
-	public static function load(xml:XmlPath) {
+	public static function make(xml:XmlPath) {
 		var info = new PartnerInfo(xml);
 		partners.set(info.id, info);
 		trace('Partner Loaded : ' + info.id);

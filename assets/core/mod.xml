@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<data>
-    <include id="data.xml"/>
-    <include id="enemies.xml"/>
-    <include id="items.xml"/>
-    <include id="levels/levels.xml"/>
-    <include id="player.xml"/>
-    <include id="lang/en_US.xml"/>
-</data>

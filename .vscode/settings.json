@@ -4,5 +4,5 @@
 		"export/**": true,
 		".git/**": true
 	},
-	"liveServer.settings.root": "/bin"
+	"liveServer.settings.root": "/export/js"
 }

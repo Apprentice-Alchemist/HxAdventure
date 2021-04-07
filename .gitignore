@@ -1,5 +1,6 @@
 *.js
 *.hl
-out/*
 *.exe
 *.hdll
+*.pak
+export/hlc-bin/*

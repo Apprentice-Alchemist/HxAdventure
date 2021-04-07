@@ -1,6 +1,6 @@
 name: Deploy
 
-on: [push, pull_request, repository_dispatch]
+on: [push]
 
 jobs:
   build:
@@ -9,22 +9,15 @@ jobs:
     - uses: actions/checkout@v2
       with:
         persist-credentials: "false"
-    - name: Install
-      uses: krdlab/setup-haxe@master
+    - uses: krdlab/setup-haxe@master
       with:
-          haxe-version: 4.1.1
-    - name: Haxelibs
-      run: |
-        haxelib git heaps https://github.com/HeapsIO/heaps.git --quiet
-        haxelib git heeps https://github.com/Yanrishatum/heeps --quiet
-        haxelib git arcane https://github.com/Apprentice-Alchemist/Arcane --quiet
-        haxelib install hscript --quiet
+          haxe-version: 4.2.1
     - name: Build
       run: haxe js.hxml
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
-        publish_dir: ./bin
+        publish_dir: ./export/js
         force_orphan: "true"
       if: github.ref == 'refs/heads/master'

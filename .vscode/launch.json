@@ -3,10 +3,9 @@
 	"configurations": [
 		{
 			"type": "hl",
-			// "hxml": "build.hxml",
 			"name": "Launch HL",
-			"preLaunchTask": "HL",
-			"program": "Adventure.hl",
+			"preLaunchTask": "haxe: active configuration",
+			"program": "export/hl/Adventure.hl",
 			"request": "launch",
 			"cwd": "${workspaceFolder}",
 			"internalConsoleOptions": "openOnSessionStart",

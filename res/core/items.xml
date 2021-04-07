@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+    <item id="fists" isEquipment="true" unequip="false" damage="1" slot="weapon"/>
+    <item id="skin" isEquipment="true" unequip="false" defense="1" slot="armor"/>
+</data>

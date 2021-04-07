@@ -1,0 +1,10 @@
+-cp src
+-main Main
+-lib heaps
+-lib hscript
+
+-D hscriptPos
+--debug
+-lib hldx
+-D resourcesPath=res
+-hl export/hl/Adventure.hl

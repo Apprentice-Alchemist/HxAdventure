@@ -14,7 +14,7 @@ class SButton extends h2d.Interactive {
 	private var txt:Text;
 
 	public function new(?scale:Int = 1, label:String, ?parent:h2d.Object, onClick:Event->Void) {
-        var tiles = hxd.Res.ui.button.toTile().split(3, true);
+		var tiles = hxd.Res.ui.button.toTile().split(3, true);
 		super(tiles[0].width, tiles[0].height, parent);
 		this.onClick = onClick;
 		txt = new Text(hxd.res.DefaultFont.get(), this);
@@ -23,7 +23,7 @@ class SButton extends h2d.Interactive {
 		txt.text = label;
 		txt.x = 0;
 		txt.y = 0;
-		txt.color.setColor(0xddddddff);
+		txt.textColor = 0x555555;
 		for (o in tiles) {
 			o.scaleToSize(o.width * ((Math.ceil(txt.textHeight) + 4) / o.height), ((Math.ceil(txt.textHeight) + 4) / o.height) * o.height);
 		}

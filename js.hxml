@@ -1,11 +1,8 @@
 -cp src
 -main Main
-
+# -lib domkit
 -lib heaps
--lib heeps
--lib arcane
 -lib hscript
 -D hscriptPos
--D resourcesPath=assets
-
--js bin/Adventure.js
+--macro AssetMacro.run("pak","export/js")
+-js export/js/Adventure.js

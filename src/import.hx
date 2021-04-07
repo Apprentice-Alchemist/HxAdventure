@@ -1,8 +1,13 @@
-import arcane.*;
-import arcane.adv.*;
-import arcane.xml.*;
-import player.*;
-import item.*;
-import ui.*;
-import enemy.*;
-import arcane.common.*;
+import Const.*;
+import util.Util.*;
+import util.SignalDispatcher;
+
+#if macro
+import haxe.macro.Expr;
+import haxe.macro.Type;
+import haxe.macro.Context;
+
+using haxe.macro.Tools;
+#end
+
+using util.Util;

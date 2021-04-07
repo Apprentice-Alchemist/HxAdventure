@@ -1,0 +1,6 @@
+[submodule ".haxelib/hscript/git"]
+	path = .haxelib/hscript/git
+	url = https://github.com/HaxeFoundation/hscript
+[submodule ".haxelib/heaps/git"]
+	path = .haxelib/heaps/git
+	url = https://github.com/HeapsIO/heaps

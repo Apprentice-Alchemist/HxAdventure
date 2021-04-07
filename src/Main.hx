@@ -1,56 +1,56 @@
 package;
 
-import arcane.common.Achievements.Achievement;
-import hxd.Res;
+import ui.Screen;
+import h2d.Layers;
+import util.ModHandler;
 
-using arcane.Utils;
+class Main extends hxd.App {
+	public static var inst(default, null):Main;
+	public static var dispatcher = new SignalDispatcher();
+	public static var screen(default, set):ui.Screen;
+	static var layers:h2d.Layers;
 
-class Main extends arcane.App {
-	public static var inst:Main;
-
-	public static function main() {
-		EventHandler.additionalVars = additionalVars;
-		ModHandler.extraActions = extraActions;
-		Achievements.onAchievement = function(a:Achievement) {
-			function show(x:Achievement, scene) {}
-			trace(a);
-			if (Main.inst.s2d != null) {
-				show(a, Main.inst.s2d);
-			}
-		}
-		Engine.init(inst = new Main());
+	static inline function set_screen(s:ui.Screen):ui.Screen {
+		switchScreen(s);
+		screen = s;
+		return s;
 	}
 
-	static function startLoading(?onComplete:Void->Void) {
-		#if hl
-		Res.initLocal();
-		#elseif js
-		Res.initEmbed();
+	static function main() {
+		#if js
+		hxd.Res.initEmbed();
+		#else
+		hxd.Res.initLocal();
 		#end
-		ModHandler.loadData(onComplete);
+		inst = new Main();
+	}
+
+	public static function switchScreen(s:Screen) {
+		if (layers != null) {
+			screen.remove();
+			layers.add(s, SCREEN_LAYER);
+		}
 	}
 
 	override function init() {
-		new TitleScreen();
-	}
-
-	override function update(dt:Float) {
-		super.update(dt);
+		hxd.Window.getInstance().onClose = function() {
+			exit();
+			return true;
+		}
+		s2d.scaleMode = LetterBox(WIDTH, HEIGHT, true, Center, Center);
+		
+		layers = new Layers(s2d);
+		screen = new TitleScreen();
 	}
 
 	override function loadAssets(onLoaded:() -> Void) {
-		startLoading(onLoaded);
+		ModHandler.loadData(() -> {}, onLoaded);
 	}
 
-	public static function additionalVars(v:Map<String, Dynamic>) {
-		v.set("getPlayer", Adventure.player.get);
-		v.set("getLevel", Adventure.level.get);
-	}
+	override function update(dt:Float) {}
 
-	public static function extraActions(v:Map<String, XmlPath->Void>) {
-		v.set("player", PlayerInfo.load);
-		v.set("item", ItemInfo.loadItem);
-		v.set("partner", PartnerInfo.load);
-		v.set("level", LevelInfo.load);
+	public static function exit() {
+		hxd.snd.Manager.get().dispose();
+		hxd.System.exit();
 	}
 }

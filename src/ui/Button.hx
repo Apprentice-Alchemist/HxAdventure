@@ -1,48 +1,53 @@
 package ui;
 
+import h2d.ScaleGrid;
 import h2d.RenderContext;
 import h2d.Tile;
 import h2d.Text;
 import hxd.Event;
 
 class Button extends h2d.Interactive {
+	public static function createRect(section:String, id:String, onClick:Event->Void) {
+		return new Button(69, 21, section, id, onClick);
+	}
+
+	public static function createSquare(section:String, id:String, onClick:Event->Void) {
+		return new Button(21, 21, section, id, onClick);
+	}
+
 	private var bg:Tile;
 	private var hover:Tile;
 	private var down:Tile;
 
 	private var pressed:Bool;
-	private var txt:Text;
+	private var txt:LText;
+	private var grid:ScaleGrid;
 
-	public function new(?scale:Int = 1, label:String, ?parent:h2d.Object, onClick:Event->Void) {
-		var tiles = hxd.Res.images.ui.button.toTile().split(3, true);
-		super(tiles[0].width, tiles[0].height, parent);
-		this.onClick = onClick;
-		txt = new Text(hxd.res.DefaultFont.get(), this);
-		txt.maxWidth = tiles[0].width * ((Math.ceil(txt.textHeight) + 4) / tiles[0].height);
-		txt.textAlign = Align.Center;
-		txt.text = label;
-		txt.x = 0;
-		txt.y = 0;
-		txt.color.setColor(0x11111111);
-		for (o in tiles) {
-			o.scaleToSize(o.width * ((Math.ceil(txt.textHeight) + 4) / o.height) ,  ((Math.ceil(txt.textHeight) + 4) / o.height) * o.height);
-		}
-
-		this.width = tiles[0].width;
-		this.height = tiles[0].height;
-
+	public function new(width:Int, height:Int, section, id, ?parent:h2d.Object, onClick:Event->Void) {
+		var tiles = hxd.Res.ui.button.toTile().split(3, true);
 		bg = tiles[0];
 		hover = tiles[1];
 		down = tiles[2];
+		super(width, height, parent);
+		grid = new h2d.ScaleGrid(bg, Std.int(bg.width / 3), Std.int(bg.height / 3), this);
+		grid.width = width;
+		grid.height = height;
+		this.onClick = onClick;
+		txt = new LText(hxd.res.DefaultFont.get(), section, id, this);
+		txt.maxWidth = width;
+		txt.textAlign = Center;
+		// txt.text = label;
+		txt.textColor = 0x555555;
 
-		this.scale(scale);
+		this.scale(2);
 	}
 
-	override private function draw(ctx:RenderContext) {
+	override private function sync(ctx:RenderContext) {
+		super.sync(ctx);
 		if (isOver()) {
-			emitTile(ctx, pressed ? down : hover);
+			grid.tile = pressed ? down : hover;
 		} else {
-			emitTile(ctx, pressed ? hover : bg);
+			grid.tile = pressed ? down : bg;
 		}
 		if (pressed && isOver())
 			txt.y = 1;

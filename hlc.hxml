@@ -1,18 +1,15 @@
 -cp src
 -main Main
-
 -lib heaps
--lib heeps
--lib arcane
+# -lib domkit
 -lib hscript
 -D hscriptPos
--D resourcesPath=assets
-
+-D hlc
+-D resourcesPath=res
 -lib hldx
-
-# -hl Adventure.hl
--hl out/main.c
+-hl export/hlc-bin/code/main.c
 --next
--cmd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
---next
--cmd cl /Ox /Foout/main /FeAdventure.exe -I "C:\LanguageToolkits\HaxeToolkit\hashlink/include" -I "out" "out/main.c" "C:/LanguageToolkits/HaxeToolkit/hashlink/ui.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/sdl.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/openal.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/fmt.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/libhl.lib" /link /SUBSYSTEM:WINDOWS
+-cmd run.bat BUILD
+# -cmd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+# --next
+# -cmd cl /Ox /Foout/main /FeAdventure.exe -I "C:\LanguageToolkits\HaxeToolkit\hashlink/include" -I "out" "out/main.c" "C:/LanguageToolkits/HaxeToolkit/hashlink/ui.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/sdl.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/openal.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/fmt.lib" "C:/LanguageToolkits/HaxeToolkit/hashlink/libhl.lib" /link /SUBSYSTEM:WINDOWS

@@ -1,22 +1,13 @@
 package enemy;
- 
+
 class Enemy {
-    public var id:String;
+	public var info:EnemyInfo;
 
-    public var health:Int;
-    public var damage:Int;
-    public var defense:Int;
-    
-    public var damageType:DamageType = Health;
-
-    public var exp:Int;
-    public var coins:Int;
-    public function new(){
-        
-    }
-
+	public function new() {}
 }
-enum DamageType {
-    Health;
-    Sanity;
+
+enum abstract DamageType(String) {
+	var Health;
+	var Sanity;
+	var Both;
 }

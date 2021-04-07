@@ -1,24 +1,27 @@
 package ui;
 
-class Screen extends h2d.Scene {
+import h2d.Flow;
+
+class Screen extends Flow {
 	override public function new() {
 		super();
-		arcane.Engine.addUpdate(update);
-		Main.inst.listen("resize", onResize);
-		arcane.Engine.app.setScene(this, true);
+		this.fillWidth = this.fillHeight = true;
+		this.horizontalAlign = this.verticalAlign = Middle;
 	}
 
-	public function update(dt:Float) {
-		// trace(Options.shown);
-		if (hxd.Key.isPressed(hxd.Key.X) && !Options.shown)
-			new Options(this);
-		else if (hxd.Key.isPressed(hxd.Key.X) && Options.shown && Options.inst != null)
-			Options.doClose();
+	inline function flow(...elements) {
+		var f = new Flow();
+		for (el in elements)
+			f.addChild(el);
+		return f;
 	}
-	override function dispose() {
-		Engine.removeUpdate(update);
-		Engine.app.removeListener("resize",onResize);
-		super.dispose();
+
+	inline function vbox(...elements) {
+		var flow = new Flow();
+		flow.layout = Vertical;
+		flow.horizontalAlign = Middle;
+		for (el in elements)
+			flow.addChild(el);
+		return flow;
 	}
-	public function onResize(_) {}
 }

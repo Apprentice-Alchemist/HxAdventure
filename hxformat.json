@@ -1,0 +1,7 @@
+{
+    "wrapping": {
+        "callParameter": {
+            "defaultWrap": "keep"
+        }
+    }
+}
